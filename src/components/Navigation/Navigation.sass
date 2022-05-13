@@ -1,0 +1,122 @@
+@import '../../mixins/mixins.sass'
+
+.navigation
+  display: flex
+  justify-content: space-between
+  align-items: start
+  &__list
+    display: flex
+  &__item
+    margin-left: 64px
+  &__link
+    @include font-size-nav
+    font-style: normal
+    font-weight: 400
+    // font-size: 21px
+    line-height: 133.84%
+    letter-spacing: 0.055em
+    text-transform: uppercase
+    color: #3D9090
+    &_active
+      font-weight: 500
+
+.navigation-mobile
+  display: flex
+  flex-direction: column
+
+.burger-btn
+  width: 28px
+  height: 28px
+  position: relative
+  cursor: pointer
+  margin-right: 7px
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    width: 28px
+    height: 3px
+    background-color: #3D9090
+    z-index: 1000
+  &::after
+    content: ''
+    position: absolute
+    bottom: 0
+    width: 28px
+    height: 3px
+    background-color: #3D9090
+    z-index: 1000
+
+.burger-btn .burger-btn__span
+  position: absolute
+  top: 12px
+  width: 28px
+  height: 3px
+  background-color: #3D9090
+  z-index: 1000
+
+.mobile-menu
+  position: fixed
+  width: 100vw
+  height: 100vh
+  top: 0px
+  right: 0
+  transform: translateX(100%)
+  transition: all 0.5s
+  &__overlay
+    position: fixed
+    background-color: rgba(0, 0, 0, 0.3)
+    left: 0
+    bottom: 0
+    right: 0
+    top: 0
+    visibility: hidden
+    opacity: 0
+    transition: all 0.5s linear
+  &__content
+    width: 69%
+    height: 100%
+    background-color: #DBEEEE
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    transition: all 0.5s
+    padding: 21% 0 12% 0
+  &__list
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__item
+    margin-bottom: 28px
+  &__link
+    font-style: normal
+    font-weight: 400
+    font-size: 21px
+    line-height: 133.84%
+    letter-spacing: 0.055em
+    text-transform: uppercase
+    color: #3D9090
+    &_active
+      border-bottom: 2px solid #3D9090
+  &__account
+    display: flex
+    align-items: center
+
+.mobile-menu.mobile-menu_active
+  transform: translateX(32%)
+
+.mobile-menu__overlay.mobile-menu__overlay_active
+  visibility: visible
+  opacity: 1
+
+.burger-btn::before .mobile-menu_active
+
+@media (max-width: 583px)
+  .mobile-menu
+    &__content
+      width: 100%
+      padding: 45% 0 15% 0
+  .mobile-menu.mobile-menu_active
+    transform: translateX(0%)

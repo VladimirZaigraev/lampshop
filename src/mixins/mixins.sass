@@ -1,0 +1,16 @@
+@function calcFluidFontSize($f-min, $f-max, $v-min, $v-max)
+  $k: ($f-max - $f-min)/($v-max - $v-min)
+  $b: $f-min - $k * $v-min
+
+  $b: $b * 1px
+
+  @return calc( #{$k} * 100vw + #{$b} )
+
+@mixin font-size-nav
+  font-size: calcFluidFontSize(12, 24, 320, 1600)
+
+@mixin font-size-span-paragraph
+  font-size: calcFluidFontSize(10, 16, 320, 1600)
+
+@mixin font-size-info
+  font-size: calcFluidFontSize(12, 24, 320, 1600)
