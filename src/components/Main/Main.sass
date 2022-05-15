@@ -1,57 +1,77 @@
 @import '../../mixins/mixins.sass'
 
+// ((100vw — [min vw width]px) / ([max vw width] — [min vw width])) = ((100vw — 500px) / (1920–500)))
+
 .main__wrapper
   display: flex
-  padding-top: 10px
-
+  padding: 10px 0 10px 0
+  // max-height: 1200px
 .description
-  width: 45%
+  // width: 45%
+  flex: 1 0 11em
+  display: flex
+  flex-direction: column
   &__info
-    padding: 80px 0 0 6px
-    width: 89%
-    height: 34.5%
+    flex: 1 0 auto
+    padding-top: calc(4px + ((80 - 4) * ((100vh - 900px) / (1200 - 900))))
+    padding-right: calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800))))
+    min-height: 41.5%
     border-bottom: 1px solid #C4C4C4
   &__text
     @include font-size-info
+    display: inline-block
     font-style: normal
-    margin: 0 0 32px 0
+    margin: 0
+    margin-bottom: calc(2px + ((29 - 2) * ((100vh - 800px) / (1200 - 800))))
     font-weight: 100
     line-height: 32px
+    // width: 89%
     letter-spacing: 0.055em
     color: #000000
 
 .image
+  flex: 1 0 23em
   box-sizing: border-box
-  width: 58%
-  height: 90vh
+  height: calc(600px + ((1087 - 600) * ((100vh - 700px) / (1200 - 700))))
+  max-height: 1087px
   background-image: url('../../img/img_bg.jpg')
   background-repeat: no-repeat
   background-position: center center
-  // background-size: 100% auto
+  background-size: cover
   border-radius: 18px
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
-  padding-left: 14.5%
+  padding-left: 13.5%
+  z-index: 0
   &__lamp
     height: 33%
+    max-height: 360px
     width: auto
 
 .product
+  flex: 1 0 auto
+  // height: 58%
+  // height: 34.5vh
   display: flex
   justify-content: space-between
   &__box
     position: relative
     display: flex
+    height: 100%
   &__image
     width: auto
-    height: 48vh
-    z-index: 100
+    height: 100%
+    max-height: 580px
+    z-index: 50
     margin-left: -20px
+    height: calc(250px + ((580 - 250) * ((100vh - 700px) / (1200 - 700))))
 
 .product__box::before
   position: absolute
   content: ''
-  width: 452px
-  height: 452px
+  // width: 452px
+  // height: 452px
+  width: calc(270px + ((452 - 250) * ((100vh - 700px) / (1200 - 700))))
+  height: calc(270px + ((452 - 250) * ((100vh - 700px) / (1200 - 700))))
   border-radius: 50%
   background-color: #E4D7B9
   top: 25px
@@ -59,17 +79,21 @@
   z-index: 0
 
 .characteristics
-  padding-top: 31%
-  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
   box-sizing: border-box
   padding-left: 6px
   width: 57%
-  // margin-right: 9px
+  z-index: 50
+  height: 100%
+  padding-bottom: calc(10px + ((135 - 10) * ((100vh - 700px) / (1200 - 700))))
   &__item
     display: flex
     align-items: center
     flex-wrap: wrap
     margin-bottom: 21px
+    // height: 100%
   &__span
     @include font-size-span-paragraph
     font-style: normal
@@ -88,25 +112,32 @@
     letter-spacing: 0.055em
 
 .menu
-  height: 46vh
-  width: 168px
+  height: calc(100px + ((554 - 100) * ((100vh - 500px) / (1200 - 500))))
+  max-height: 544px
+  // width: 168px
+  width: calc(50px + ((168 - 50) * ((100vh - 500px) / (1200 - 500))))
+  max-width: 168px
   background-color: #BDDDDD
   border-radius: 14px 0px 0px 14px
-  margin-top: 41px
+  margin-top: 7%
   box-sizing: border-box
   display: flex
   flex-direction: column
   justify-content: space-between
-
+  z-index: 50
 .navbar
   display: flex
   flex-direction: column
   justify-content: space-between
-  padding: 17px
+  padding: 11%
+  height: 100%
   &__item
-    margin-bottom: 17px
+    margin-bottom: 11%
     position: relative
     width: 100%
+    height: calc(25px + ((133 - 25) * ((100vh - 500px) / (1200 - 500))))
+    max-height: 133px
+    flex: 1 0 auto
   &__item::after
     content: ""
     display: block
@@ -118,6 +149,7 @@
     position: absolute
     width: 100%
     height: 100%
+    min-height: 20px
     border-radius: 14px
     // width: 133px
     // height: 131px
@@ -125,14 +157,16 @@
     background-image: url('../../img/lamp.png')
     background-repeat: no-repeat
     background-position: top
-    background-size: contain
+    // background-size: contain
+    background-size: auto 89%
     background-color: inherit
     &:hover
       background-color: #CDE6E6
 
 .switch
   width: 100%
-  height: 76px
+  // height: 20%
+  height: 72px
   &__button
     width: 50%
     height: 100%
@@ -142,8 +176,10 @@
     background-image: url('../../img/sun.svg')
     background-repeat: no-repeat
     background-position: center center
+    background-size: 50%
   &__night
     background-color: #94A6A6
     background-image: url('../../img/moon.svg')
     background-repeat: no-repeat
     background-position: center center
+    background-size: 50%

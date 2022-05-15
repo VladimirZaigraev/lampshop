@@ -64,7 +64,7 @@ export const Navigation = () => {
           <div className="navigation-mobile">
             <div className="navigation-mobile__burger-btn burger-btn" onClick={() => setMenuActive(!menuActive)}>
               <span className="burger-btn__span"></span>
-              <div className={menuActive ? " mobile-menu__overlay_active" : "mobile-menu__overlay"} />
+              <div className={menuActive ? " mobile-menu__overlay_active mobile-menu__overlay" : "mobile-menu__overlay"} />
               <div className={menuActive ? "navigation-mobile__menu mobile-menu mobile-menu_active" : "navigation-mobile__menu mobile-menu"} onClick={() => setMenuActive(!menuActive)}>
                 <div className="mobile-menu__content">
                   <ul className="mobile-menu__list list">
