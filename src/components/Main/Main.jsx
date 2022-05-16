@@ -1,6 +1,7 @@
 import React from 'react'
 import './Main.sass'
 import { Header } from '../Header/Header';
+import { Preloader } from '../Preloader/Preloader';
 import Lamp from '../../img/lamp.png'
 export const Main = () => {
   return (
