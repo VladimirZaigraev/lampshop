@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Main.sass'
 import { Header } from '../Header/Header';
 import { Preloader } from '../Preloader/Preloader';
 import Lamp from '../../img/lamp.png'
+import bacgroundDay from '../../img/img_bg.jpg';
+import bacgroundNight from '../../img/img_bg_night.jpg';
+
+import * as api from '../../utils/api.js'
 export const Main = () => {
+  const [products, setProducts] = useState([]);
+  const [productActive, setProductActive] = useState([]);
+  const [imgBg, setImgBg] = useState(true)
+  console.log(imgBg)
+  useEffect(() => {
+    api.getProducts()
+      .then((product) => {
+        setProducts(product)
+        console.log(product)
+        setProductActive(product.slice(0, 1))
+      })
+  }, [])
+  // console.log(productActive)
+  const handlerClickProduct = (event) => {
+    const productFind = products.find(elem => elem.id == event.target.id)
+    setProductActive(productFind)
+  }
+
+  // const handleClickBg = () => {
+
+  // }
+
   return (
     <>
       <Header />
@@ -24,45 +50,45 @@ export const Main = () => {
                   <ul className="product__characteristics characteristics list">
                     <li className="characteristics__item item">
                       <span className="characteristics__span">Material:</span>
-                      <p className="characteristics__paragraph">Metal
+                      <p className="characteristics__paragraph">{productActive.material}
                       </p>
                     </li>
                     <li className="characteristics__item item">
                       <span className="characteristics__span"> Dimensions (cm): </span>
-                      <p className="characteristics__paragraph">H 45 x W 12 x D 12</p>
+                      <p className="characteristics__paragraph"> {productActive.width}sm</p>
                     </li>
                     <li className="characteristics__item item">
                       <span className="characteristics__span">Net Weight:</span>
-                      <p className="characteristics__paragraph">2,4 kg</p>
+                      <p className="characteristics__paragraph">{productActive.weight} kg</p>
                     </li>
                     <li className="characteristics__item item">
                       <span className="characteristics__span">Electrification:</span>
-                      <p className="characteristics__paragraph">LED 10W | G9 |  220-240V | 50 Hz</p>
+                      <p className="characteristics__paragraph">{productActive.electrification}</p>
                     </li>
                   </ul>
-                  <img className="product__image" src={Lamp} alt="Изображение товара" />
+                  <img className="product__image" src={productActive.image} alt="Изображение товара" />
                 </div>
                 <div className="product__menu menu">
                   <ul className="menu__navbar navbar list">
-                    <li className="navbar__item item">
-                      <button className="navbar__button button"></button>
-                    </li>
-                    <li className="navbar__item item">
-                      <button className="navbar__button button"></button>
-                    </li>
-                    <li className="navbar__item item">
-                      <button className="navbar__button button"></button>
-                    </li>
+                    {
+                      products.map((product) => {
+                        return (
+                          <li className="navbar__item item" key={product.id}>
+                            <button style={{ backgroundImage: `url('${product.image}')` }} className="navbar__button button" onClick={handlerClickProduct} id={product.id}></button>
+                          </li>
+                        )
+                      })
+                    }
                   </ul>
                   <div className="menu__switch switch">
-                    <button className="switch__button button switch__day"></button>
-                    <button className="switch__button button switch__night"></button>
+                    <button className="switch__button button switch__day" onClick={() => setImgBg(!imgBg)}></button>
+                    <button className="switch__button button switch__night" onClick={() => setImgBg(!imgBg)}></button>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="main__image image">
-              <img src={Lamp} alt="#" className="image__lamp" />
+            <div className="main__image image" style={{ backgroundImage: `url('${imgBg === true ? bacgroundDay : bacgroundNight}')` }} >
+              <img src={productActive.image} alt="#" className="image__lamp" />
             </div>
           </div>
         </div>
