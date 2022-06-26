@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import './Main.sass';
 import { Header } from '../Header/Header';
+import { ImageBg } from '../ImageBg/ImageBg';
 import { Preloader } from '../Preloader/Preloader';
-import Lamp from '../../img/lamp.png';
-import bacgroundDay from '../../img/img_bg.jpg';
-import bacgroundNight from '../../img/img_bg_night.jpg';
+import { ProductBox } from '../ProductBox/ProductBox';
+import { NavbarList } from '../NavbarList/NavbarList';
+import { Switch } from '../Switch/Switch';
 
 import * as api from '../../utils/api.js';
 
 import { data } from '../../mokap/mokap';
+
 export const Main = () => {
   const [products, setProducts] = useState(data);
   const [productActive, setProductActive] = useState(products[0]);
 
   const [imgBg, setImgBg] = useState(true);
-  console.log(imgBg);
+
+  // запрос к api закоментирован тк для коректной работы требуется VPN
+
   // useEffect(() => {
   //   api.getProducts().then((product) => {
   //     setProducts(product);
@@ -22,15 +26,15 @@ export const Main = () => {
   //     setProductActive(product.slice(0, 1));
   //   });
   // }, []);
-  console.log(products[1]);
+
+  useEffect(() => {
+    setImgBg(true);
+  }, [productActive]);
+
   const handlerClickProduct = (event) => {
     const productFind = products.find((elem) => elem.id == event.target.id);
     setProductActive(productFind);
   };
-
-  // const handleClickBg = () => {
-
-  // }
 
   return (
     <>
@@ -52,67 +56,22 @@ export const Main = () => {
                 </p>
               </div>
               <div className="description__product product">
-                <div className="product__box">
-                  <ul className="product__characteristics characteristics list">
-                    <li className="characteristics__item item">
-                      <span className="characteristics__span">Material:</span>
-                      <p className="characteristics__paragraph">{productActive.material}</p>
-                    </li>
-                    <li className="characteristics__item item">
-                      <span className="characteristics__span"> Dimensions (cm): </span>
-                      <p className="characteristics__paragraph">
-                        H {productActive.height} x W {productActive.width} x D {productActive.width}
-                      </p>
-                    </li>
-                    <li className="characteristics__item item">
-                      <span className="characteristics__span">Net Weight:</span>
-                      <p className="characteristics__paragraph">{productActive.weight} kg</p>
-                    </li>
-                    <li className="characteristics__item item">
-                      <span className="characteristics__span">Electrification:</span>
-                      <p className="characteristics__paragraph">{productActive.electrification}</p>
-                    </li>
-                  </ul>
-                  <div className="product__image image-product">
-                    <img
-                      className="image-product__active"
-                      src={productActive.image}
-                      alt={productActive.name}
-                    />
-                  </div>
-                </div>
+                <ProductBox
+                  material={productActive.material}
+                  height={productActive.height}
+                  width={productActive.width}
+                  weight={productActive.weight}
+                  electrification={productActive.electrification}
+                  image={productActive.image}
+                  name={productActive.name}
+                />
                 <div className="product__menu menu">
-                  <ul className="menu__navbar navbar list">
-                    {products.map((product) => {
-                      return (
-                        <li className="navbar__item item" key={product.id}>
-                          <button
-                            style={{ backgroundImage: `url('${product.image}')` }}
-                            className="navbar__button button"
-                            onClick={handlerClickProduct}
-                            id={product.id}></button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <div className="menu__switch switch">
-                    <button
-                      className="switch__button button switch__day"
-                      onClick={() => setImgBg(!imgBg)}></button>
-                    <button
-                      className="switch__button button switch__night"
-                      onClick={() => setImgBg(!imgBg)}></button>
-                  </div>
+                  <NavbarList products={products} handlerClickProduct={handlerClickProduct} />
+                  <Switch setImgBg={setImgBg} imgBg={imgBg} dark={productActive.isDarkMode} />
                 </div>
               </div>
             </div>
-            <div
-              className="main__image image"
-              style={{
-                backgroundImage: `url('${imgBg === true ? bacgroundDay : bacgroundNight}')`,
-              }}>
-              <img src={productActive.image} alt={productActive.name} className="image__lamp" />
-            </div>
+            <ImageBg imgBg={imgBg} productActive={productActive} />
           </div>
         </div>
       </main>

@@ -1,13 +1,10 @@
 @import '../../mixins/mixins.sass'
 
-// ((100vw — [min vw width]px) / ([max vw width] — [min vw width])) = ((100vw — 500px) / (1920–500)))
-
 .main__wrapper
   display: flex
   padding: 10px 0 10px 0
-  // max-height: 1200px
+
 .description
-  // width: 45%
   flex: 1 1 11em
   display: flex
   flex-direction: column
@@ -16,7 +13,6 @@
     display: flex
     flex-direction: column
     justify-content: center
-    // padding: 6.4vh calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800)))) 0 0
     padding: 3% calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800)))) 0 0
     border-bottom: 1px solid #C4C4C4
   &__text
@@ -27,35 +23,11 @@
     margin-bottom: calc(2px + ((29 - 2) * ((100vh - 800px) / (1200 - 800))))
     font-weight: 100
     line-height: 32px
-    // width: 89%
     letter-spacing: 0.055em
     color: #000000
 
-.image
-  flex: 1 0 23em
-  box-sizing: border-box
-  height: calc(600px + ((1087 - 600) * ((100vh - 700px) / (1200 - 700))))
-  max-height: 1087px
-  // background-image: url('../../img/img_bg.jpg')
-  background-repeat: no-repeat
-  background-position: top left
-  background-size: cover
-  border-radius: 18px
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
-  padding-left: 13.5%
-  z-index: 40
-  &__lamp
-    height: 33%
-    max-height: 360px
-    width: auto
-  &__product
-    height: 100%
-    max-width: 100%
-
 .product
   flex: 1 0 auto
-  // height: 58%
-  // height: 34.5vh
   position: relative
   display: flex
   justify-content: space-between
@@ -64,15 +36,11 @@
     display: flex
     height: 100%
     width: 72%
-    // align-items: center
 
 .image-product
-  // max-width: calc(58px + ((158 - 58) * ((100vw - 700px) / (1200 - 700))))
   max-height: 580px
-  // width: auto
   z-index: 30
   flex: 0 0 150px
-  // z-index: 50
   margin-left: -20px
   height: calc(250px + ((580 - 250) * ((100vh - 700px) / (1200 - 700))))
   display: flex
@@ -88,8 +56,6 @@
 .product__box::before
   position: absolute
   content: ''
-  // width: 452px
-  // height: 452px
   width: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
   height: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
   border-radius: 50%
@@ -101,14 +67,11 @@
 .characteristics
   display: flex
   flex-direction: column
-  // justify-content: center
   box-sizing: border-box
   padding-left: 9px
-  // width: 57%
   z-index: 60
   height: 100%
   flex: 0 3 60%
-  // padding-bottom: calc(0px + ((135 - 0) * ((100vh - 700px) / (1200 - 700))))
   padding-top: calc(0px + 159 * (100vh - 700px) / 500)
   @include font-size-span-paragraph
   &__item
@@ -116,12 +79,9 @@
     align-items: center
     flex-wrap: wrap
     margin-bottom: 21px
-    // height: 100%
   &__span
-    // @include font-size-span-paragraph
     font-style: normal
     font-weight: 400
-    // font-size: 16px
     line-height: 133.84%
     letter-spacing: 0.055em
     margin: 0
@@ -129,16 +89,12 @@
     margin: 0
     font-style: normal
     font-weight: 100
-    // font-size: 16px
     line-height: 133.84%
     letter-spacing: 0.055em
 
 .menu
-  // height: calc(100px + ((554 - 100) * ((100vh - 500px) / (1200 - 500))))
   height: 90%
   max-height: 549px
-  // width: 168px
-  // width: calc(50px + ((168 - 50) * ((100vh - 500px) / (1200 - 500))))
   width: 30%
   max-width: 168px
   background-color: #BDDDDD
@@ -152,70 +108,7 @@
   position: absolute
   right: 0
 
-.navbar
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  padding: 11%
-  height: 100%
-  overflow: auto
-  &__item
-    margin-bottom: 11%
-    position: relative
-    width: 100%
-    height: calc(25px + ((133 - 25) * ((100vh - 500px) / (1200 - 500))))
-    max-height: 133px
-    flex: 1 0 auto
-  // &__item::after
-  //   content: ""
-  //   display: block
-  //   padding-bottom: 100%
-  &__item:last-child
-    margin-bottom: 0
-  &__button
-    // position: absolute
-    width: 100%
-    height: 100%
-    min-height: 20px
-    border-radius: 14px
-    // width: 133px
-    // height: 131px
-    border: none
-    background-image: url('../../img/lamp.png')
-    background-repeat: no-repeat
-    background-position: top
-    background-size: auto 89%
-    background-color: inherit
-    &:hover
-      background-color: #CDE6E6
-
-
-.switch
-  width: 100%
-  // height: 20%
-  height: 86px
-  &__button
-    width: 50%
-    height: 100%
-  &__day
-    background-color: #FFF3DA
-    border-radius: 0px 0px 0px 14px
-    background-image: url('../../img/sun.svg')
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: 33px 33px
-  &__night
-    background-color: #94A6A6
-    background-image: url('../../img/moon.svg')
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: 33px 33px
-
 @media (max-width: 1200px)
-  .container
-    max-width: 1140px
-    margin: 0 auto
-
   .description
     &__info
       flex: 1 3 32%
@@ -225,9 +118,6 @@
   .main
     &__wrapper
       padding-top: 0
-
-  .image
-    flex: 1 0 19em
 
   .characteristics
     padding-top: 32%
@@ -260,60 +150,15 @@
     flex-direction: column
     justify-content: start
     &__box
-      // justify-content: space-between
       margin-bottom: 20px
       width: 100%
       align-items: center
     &__image
       height: 250px
 
-  .image
-    flex: 1 0 auto
-    height: 1100px
-    padding-left: 27.5%
-    &__lamp
-      height: 20%
-
   .characteristics
     padding-top: 0
     justify-content: center
-
-  .navbar
-    flex-direction: row
-    width: 100%
-    padding: 10px
-    // justify-content: space-between
-    padding: 10px 10px 10px 0
-    &__item
-      height: 100%
-      width: 20%
-      margin-bottom: 0
-      margin-left: 10px
-    // &__item::after
-    //   content: ""
-    //   display: block
-    //   padding-bottom: 0
-    //   padding-top: 100%
-    &__button
-    // position: absolute
-      width: 100%
-      height: 100%
-      min-height: 100%
-      background-size: auto 100%
-
-  .switch
-    display: flex
-    flex-direction: column
-    height: 100%
-    width: 50px
-    &__button
-      width: 100%
-    &__day
-      background-color: #FFF3DA
-      border-radius: 14px 0px 0px 0px
-      background-size: 20px 20px
-    &__night
-      background-size: 20px 20px
 
 @media (max-width: 700px)
   .product
@@ -323,7 +168,6 @@
     &__box
       width: 100%
       justify-content: space-between
-      
     &__image
       max-width: 200px
 
@@ -341,17 +185,6 @@
     box-sizing: border-box
     position: relative
 
-  .image
-    height: 800px
 @media (max-width: 400px)
   .menu
     max-height: 70px
-  .navbar
-    padding: 5px 5px 5px 0
-    &__item
-      margin-left: 5px
-      width: 30%
-
-  .image
-    height: 450px
-   

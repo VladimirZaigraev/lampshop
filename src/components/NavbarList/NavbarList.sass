@@ -1,0 +1,53 @@
+.navbar
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: 11%
+  height: 100%
+  overflow: auto
+  &__item
+    margin-bottom: 11%
+    position: relative
+    width: 100%
+    height: calc(25px + ((133 - 25) * ((100vh - 500px) / (1200 - 500))))
+    max-height: 133px
+    flex: 1 0 auto
+  &__item:last-child
+    margin-bottom: 0
+  &__button
+    width: 100%
+    height: 100%
+    min-height: 20px
+    border-radius: 14px
+    border: none
+    background-image: url('../../img/lamp.png')
+    background-repeat: no-repeat
+    background-position: top
+    background-size: auto 89%
+    background-color: inherit
+    &:hover
+      background-color: #CDE6E6
+
+@media (max-width: 1000px)
+  .navbar
+    flex-direction: row
+    width: 100%
+    padding: 10px
+    padding: 10px 10px 10px 0
+    &__item
+      height: 100%
+      width: 20%
+      margin-bottom: 0
+      margin-left: 10px
+    &__button
+      width: 100%
+      height: 100%
+      min-height: 100%
+      background-size: auto 100%
+
+@media (max-width: 400px)
+  .navbar
+    padding: 5px 5px 5px 0
+    &__item
+      margin-left: 5px
+      width: 30%
