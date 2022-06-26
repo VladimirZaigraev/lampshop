@@ -27,6 +27,27 @@
     background-color: inherit
     &:hover
       background-color: #CDE6E6
+      
+// скроллбар
+  // firefox
+.navbar
+  scrollbar-color: #CDE6E6 #BFD4D4// «цвет ползунка» «цвет полосы скроллбара» 
+  scrollbar-width:  thin  // толщина 
+
+  // all
+.navbar::-webkit-scrollbar 
+    width: 8px // ширина для вертикального скролла 
+    height: 8px // высота для горизонтального скролла
+    background-color: #BFD4D4
+
+/* ползунок скроллбара */
+.navbar::-webkit-scrollbar-thumb 
+    background-color: #CDE6E6
+    border-radius: 9em
+    box-shadow: inset 1px 1px 10px #f3faf7
+
+.navbar::-webkit-scrollbar-thumb:hover 
+    background-color: #DEEEEE
 
 @media (max-width: 1000px)
   .navbar
