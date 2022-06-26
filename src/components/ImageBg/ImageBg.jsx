@@ -1,15 +1,12 @@
 import React from 'react';
 import './ImageBg.sass';
-import bacgroundDay from '../../img/img_bg.jpg';
-import bacgroundNight from '../../img/img_bg_night.jpg';
 
 export const ImageBg = ({ imgBg, productActive }) => {
   return (
     <div
-      className="main__image image"
-      style={{
-        backgroundImage: `url('${imgBg === true ? bacgroundDay : bacgroundNight}')`,
-      }}>
+      className={
+        'main__image image ' + (imgBg ? 'image__background-day' : 'image__background-night')
+      }>
       <img src={productActive.image} alt={productActive.name} className="image__lamp" />
     </div>
   );
