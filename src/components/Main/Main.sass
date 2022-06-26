@@ -8,14 +8,16 @@
   // max-height: 1200px
 .description
   // width: 45%
-  flex: 1 0 11em
+  flex: 1 1 11em
   display: flex
   flex-direction: column
   &__info
-    flex: 1 0 auto
-    padding-top: calc(4px + ((80 - 4) * ((100vh - 900px) / (1200 - 900))))
-    padding-right: calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800))))
-    min-height: 41.5%
+    flex: 2 2 31%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    // padding: 6.4vh calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800)))) 0 0
+    padding: 3% calc(5px + ((68 - 5) * ((100vh - 800px) / (1200 - 800)))) 0 0
     border-bottom: 1px solid #C4C4C4
   &__text
     @include font-size-info
@@ -36,45 +38,60 @@
   max-height: 1087px
   // background-image: url('../../img/img_bg.jpg')
   background-repeat: no-repeat
-  background-position: center center
+  background-position: top left
   background-size: cover
   border-radius: 18px
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
   padding-left: 13.5%
-  z-index: 0
+  z-index: 40
   &__lamp
     height: 33%
     max-height: 360px
     width: auto
+  &__product
+    height: 100%
+    max-width: 100%
 
 .product
   flex: 1 0 auto
   // height: 58%
   // height: 34.5vh
+  position: relative
   display: flex
   justify-content: space-between
   &__box
     position: relative
     display: flex
     height: 100%
-  &__image
-    width: auto
-    max-width: calc(58px + ((158 - 58) * ((100vw - 700px) / (1200 - 700))))
+    width: 72%
+    // align-items: center
+
+.image-product
+  // max-width: calc(58px + ((158 - 58) * ((100vw - 700px) / (1200 - 700))))
+  max-height: 580px
+  // width: auto
+  z-index: 30
+  flex: 0 0 150px
+  // z-index: 50
+  margin-left: -20px
+  height: calc(250px + ((580 - 250) * ((100vh - 700px) / (1200 - 700))))
+  display: flex
+  flex-direction: column
+  align-items: center
+  position: relative
+  &__active
+    position: absolute
     height: 100%
-    max-height: 580px
-    z-index: 50
-    margin-left: -20px
-    height: calc(250px + ((580 - 250) * ((100vh - 700px) / (1200 - 700))))
-    object-fit: contain
-    object-position: 0 0
+    object-fit: cover
+    object-position: top center
 
 .product__box::before
   position: absolute
   content: ''
   // width: 452px
   // height: 452px
-  width: calc(270px + ((452 - 250) * ((100vh - 700px) / (1200 - 700))))
-  height: calc(270px + ((452 - 250) * ((100vh - 700px) / (1200 - 700))))
+  width: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
+  height: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
   border-radius: 50%
   background-color: #E4D7B9
   top: 25px
@@ -84,13 +101,16 @@
 .characteristics
   display: flex
   flex-direction: column
-  justify-content: center
+  // justify-content: center
   box-sizing: border-box
-  padding-left: 6px
-  width: 57%
-  z-index: 50
+  padding-left: 9px
+  // width: 57%
+  z-index: 60
   height: 100%
-  padding-bottom: calc(0px + ((135 - 0) * ((100vh - 700px) / (1200 - 700))))
+  flex: 0 3 60%
+  // padding-bottom: calc(0px + ((135 - 0) * ((100vh - 700px) / (1200 - 700))))
+  padding-top: calc(0px + 159 * (100vh - 700px) / 500)
+  @include font-size-span-paragraph
   &__item
     display: flex
     align-items: center
@@ -98,15 +118,14 @@
     margin-bottom: 21px
     // height: 100%
   &__span
-    @include font-size-span-paragraph
+    // @include font-size-span-paragraph
     font-style: normal
     font-weight: 400
     // font-size: 16px
     line-height: 133.84%
     letter-spacing: 0.055em
     margin: 0
-  &__paragraph
-    @include font-size-span-paragraph
+  &__paragraph 
     margin: 0
     font-style: normal
     font-weight: 100
@@ -115,19 +134,24 @@
     letter-spacing: 0.055em
 
 .menu
-  height: calc(100px + ((554 - 100) * ((100vh - 500px) / (1200 - 500))))
-  max-height: 544px
+  // height: calc(100px + ((554 - 100) * ((100vh - 500px) / (1200 - 500))))
+  height: 90%
+  max-height: 549px
   // width: 168px
-  width: calc(50px + ((168 - 50) * ((100vh - 500px) / (1200 - 500))))
+  // width: calc(50px + ((168 - 50) * ((100vh - 500px) / (1200 - 500))))
+  width: 30%
   max-width: 168px
   background-color: #BDDDDD
   border-radius: 14px 0px 0px 14px
-  margin-top: 7%
+  margin-top: 4vh
   box-sizing: border-box
   display: flex
   flex-direction: column
   justify-content: space-between
-  z-index: 50
+  z-index: 60
+  position: absolute
+  right: 0
+
 .navbar
   display: flex
   flex-direction: column
@@ -160,19 +184,16 @@
     background-image: url('../../img/lamp.png')
     background-repeat: no-repeat
     background-position: top
-    // background-size: contain
     background-size: auto 89%
     background-color: inherit
     &:hover
       background-color: #CDE6E6
 
-// .navbar::-webkit-scrollbar
-//   width: 0
 
 .switch
   width: 100%
   // height: 20%
-  height: 72px
+  height: 86px
   &__button
     width: 50%
     height: 100%
@@ -182,43 +203,90 @@
     background-image: url('../../img/sun.svg')
     background-repeat: no-repeat
     background-position: center center
-    background-size: 50%
+    background-size: 33px 33px
   &__night
     background-color: #94A6A6
     background-image: url('../../img/moon.svg')
     background-repeat: no-repeat
     background-position: center center
-    background-size: 50%
+    background-size: 33px 33px
+
+@media (max-width: 1200px)
+  .container
+    max-width: 1140px
+    margin: 0 auto
+
+  .description
+    &__info
+      flex: 1 3 32%
+    &__text
+      font-size: 16px
+
+  .main
+    &__wrapper
+      padding-top: 0
+
+  .image
+    flex: 1 0 19em
+
+  .characteristics
+    padding-top: 32%
+    font-size: 11px
+
+  .menu
+    width:25%
 
 @media (max-width: 1000px)
   .main__wrapper
     flex-direction: column
   .description
+    flex: 1 1 auto
     &__info
       padding-right: 0
+      flex: 1 3 auto
   .menu
     flex-direction: row-reverse
-    width: 544px
-    max-width: 544px
-    max-height: 100px
     border-radius: 14px 14px 0px 0px
-    margin-right: 14px
+    position: relative
+    width: 80%
+    height: 100px
+    max-width: 80%
+    margin-right: 0
+    margin-top: 0
+    position: relative
+    margin-left: 10px
+
   .product
-    align-items: end
+    flex-direction: column
+    justify-content: start
+    &__box
+      // justify-content: space-between
+      margin-bottom: 20px
+      width: 100%
+      align-items: center
     &__image
       height: 250px
 
+  .image
+    flex: 1 0 auto
+    height: 1100px
+    padding-left: 27.5%
+    &__lamp
+      height: 20%
+
   .characteristics
-    padding: 0
+    padding-top: 0
+    justify-content: center
+
   .navbar
     flex-direction: row
     width: 100%
     padding: 10px
-    justify-content: space-between
+    // justify-content: space-between
     padding: 10px 10px 10px 0
     &__item
       height: 100%
-      width: 30%
+      width: 20%
       margin-bottom: 0
       margin-left: 10px
     // &__item::after
@@ -243,6 +311,10 @@
     &__day
       background-color: #FFF3DA
       border-radius: 14px 0px 0px 0px
+      background-size: 20px 20px
+    &__night
+      background-size: 20px 20px
+
 @media (max-width: 700px)
   .product
     width: 100%
@@ -250,18 +322,27 @@
     align-items: center
     &__box
       width: 100%
-      // justify-content: space-between
+      justify-content: space-between
+      
+    &__image
+      max-width: 200px
+
   .product__box::before
     position: absolute
     content: ''
     width: 300px
     height: 300px
+
   .menu
     width: 95%
+    height: 100px
     max-width: 95%
-    margin-right: 0
+    margin: 0
     box-sizing: border-box
+    position: relative
 
+  .image
+    height: 800px
 @media (max-width: 400px)
   .menu
     max-height: 70px
@@ -269,3 +350,8 @@
     padding: 5px 5px 5px 0
     &__item
       margin-left: 5px
+      width: 30%
+
+  .image
+    height: 450px
+   

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import './Navigation.sass'
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import './Navigation.sass';
 
 const navLink = [
   {
@@ -11,19 +11,19 @@ const navLink = [
   {
     id: 2,
     name: 'Blog',
-    link: '/'
+    link: '#',
   },
   {
     id: 3,
     name: 'About',
-    link: '/'
+    link: '#',
   },
   {
     id: 4,
     name: 'contacts',
-    link: '/'
+    link: '#',
   },
-]
+];
 
 export const Navigation = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -38,53 +38,78 @@ export const Navigation = () => {
     return () => {
       window.removeEventListener('resize', updateScreenType);
     };
-
   }, []);
 
   return (
     <>
-      {
-        !isMobile ? (
-          <div className="navigation">
-            <ul className="navigation__list list">
-              {
-                navLink.map(elem => {
-                  return (
-                    <li className="navigation__item item" key={elem.id}>
-                      <NavLink className={({ isActive }) => isActive ? "navigation__link navigation__link_active link" : "navigation__link link font-size-nav"} to={elem.link}>
-                        {elem.name}
-                      </NavLink>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </div>
-        ) : (
-          <div className="navigation-mobile">
-            <div className="navigation-mobile__burger-btn burger-btn" onClick={() => setMenuActive(!menuActive)}>
-              <span className="burger-btn__span"></span>
-              <div className={menuActive ? " mobile-menu__overlay_active mobile-menu__overlay" : "mobile-menu__overlay"} />
-              <div className={menuActive ? "navigation-mobile__menu mobile-menu mobile-menu_active" : "navigation-mobile__menu mobile-menu"} onClick={() => setMenuActive(!menuActive)}>
-                <div className="mobile-menu__content">
-                  <ul className="mobile-menu__list list">
-                    {
-                      navLink.map(elem => {
-                        return (
-                          <li className="mobile-menu__item item " key={elem.id}>
-                            <NavLink className={({ isActive }) => isActive ? "mobile-menu__link mobile-menu__link_active link" : "mobile-menu__link link"} to={elem.link}> {elem.name}
-                            </NavLink>
-                          </li>
-                        )
-                      })
+      {!isMobile ? (
+        <div className="navigation">
+          <ul className="navigation__list list">
+            {navLink.map((elem) => {
+              return (
+                <li className="navigation__item item" key={elem.id}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? 'navigation__link navigation__link_active link'
+                        : 'navigation__link link font-size-nav'
                     }
-                  </ul>
-                </div>
+                    to={elem.link}>
+                    {elem.name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ) : (
+        <div className="navigation-mobile">
+          <div
+            className={
+              menuActive
+                ? 'navigation-mobile__burger-btn burger-btn_active burger-btn'
+                : 'navigation-mobile__burger-btn burger-btn'
+            }
+            onClick={() => setMenuActive(!menuActive)}>
+            <span className="burger-btn__span"></span>
+            <div
+              className={
+                menuActive
+                  ? ' mobile-menu__overlay_active mobile-menu__overlay'
+                  : 'mobile-menu__overlay'
+              }
+            />
+            <div
+              className={
+                menuActive
+                  ? 'navigation-mobile__menu mobile-menu mobile-menu_active'
+                  : 'navigation-mobile__menu mobile-menu'
+              }
+              onClick={() => setMenuActive(!menuActive)}>
+              <div className="mobile-menu__content">
+                <ul className="mobile-menu__list list">
+                  {navLink.map((elem) => {
+                    return (
+                      <li className="mobile-menu__item item " key={elem.id}>
+                        <NavLink
+                          className={({ isActive }) =>
+                            isActive
+                              ? 'mobile-menu__link mobile-menu__link_active link'
+                              : 'mobile-menu__link link'
+                          }
+                          to={elem.link}>
+                          {' '}
+                          {elem.name}
+                        </NavLink>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           </div>
-        )
-      }
+        </div>
+      )}
     </>
-  )
-}
+  );
+};
