@@ -31,11 +31,6 @@
   position: relative
   display: flex
   justify-content: space-between
-  &__box
-    position: relative
-    display: flex
-    height: 100%
-    width: 72%
 
 .image-product
   max-height: 580px
@@ -52,45 +47,6 @@
     height: 100%
     object-fit: cover
     object-position: top center
-
-.product__box::before
-  position: absolute
-  content: ''
-  width: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
-  height: calc(270px + (175 * ((100vh - 700px) / (1200 - 700))))
-  border-radius: 50%
-  background-color: #E4D7B9
-  top: 25px
-  left: -79px
-  z-index: 0
-
-.characteristics
-  display: flex
-  flex-direction: column
-  box-sizing: border-box
-  padding-left: 9px
-  z-index: 60
-  height: 100%
-  flex: 0 3 60%
-  padding-top: calc(0px + 159 * (100vh - 700px) / 500)
-  @include font-size-span-paragraph
-  &__item
-    display: flex
-    align-items: center
-    flex-wrap: wrap
-    margin-bottom: 21px
-  &__span
-    font-style: normal
-    font-weight: 400
-    line-height: 133.84%
-    letter-spacing: 0.055em
-    margin: 0
-  &__paragraph 
-    margin: 0
-    font-style: normal
-    font-weight: 100
-    line-height: 133.84%
-    letter-spacing: 0.055em
 
 .menu
   height: 90%
@@ -118,10 +74,6 @@
   .main
     &__wrapper
       padding-top: 0
-
-  .characteristics
-    padding-top: 32%
-    font-size: 11px
 
   .menu
     width:25%
@@ -156,27 +108,14 @@
     &__image
       height: 250px
 
-  .characteristics
-    padding-top: 0
-    justify-content: center
-
 @media (max-width: 700px)
   .product
     width: 100%
     flex-direction: column
     align-items: center
-    &__box
-      width: 100%
-      justify-content: space-between
     &__image
       max-width: 200px
-
-  .product__box::before
-    position: absolute
-    content: ''
-    width: 300px
-    height: 300px
-
+      
   .menu
     width: 95%
     height: 100px

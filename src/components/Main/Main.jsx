@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Main.sass';
 import { Header } from '../Header/Header';
 import { ImageBg } from '../ImageBg/ImageBg';
-import { Preloader } from '../Preloader/Preloader';
 import { ProductBox } from '../ProductBox/ProductBox';
 import { NavbarList } from '../NavbarList/NavbarList';
 import { Switch } from '../Switch/Switch';
@@ -13,17 +12,21 @@ import { data } from '../../mokap/mokap';
 
 export const Main = () => {
   const [products, setProducts] = useState(data);
-  const [productActive, setProductActive] = useState(products[0]);
+
+  const [productActive, setProductActive] = useState(products[0] || []);
+  const [loading, setLoading] = useState(false);
 
   const [imgBg, setImgBg] = useState(true);
 
-  // запрос к api закоментирован тк для коректной работы требуется VPN
-
+  // запрос к api и стейт закоментирован тк для коректной работы требуется VPN
+  // const [products, setProducts] = useState([]);
   // useEffect(() => {
+  //   setLoading(true);
   //   api.getProducts().then((product) => {
   //     setProducts(product);
   //     console.log(product);
   //     setProductActive(product.slice(0, 1));
+  //     setLoading(false);
   //   });
   // }, []);
 
@@ -64,14 +67,19 @@ export const Main = () => {
                   electrification={productActive.electrification}
                   image={productActive.image}
                   name={productActive.name}
+                  loading={loading}
                 />
                 <div className="product__menu menu">
-                  <NavbarList products={products} handlerClickProduct={handlerClickProduct} />
+                  <NavbarList
+                    products={products}
+                    handlerClickProduct={handlerClickProduct}
+                    loading={loading}
+                  />
                   <Switch setImgBg={setImgBg} imgBg={imgBg} dark={productActive.isDarkMode} />
                 </div>
               </div>
             </div>
-            <ImageBg imgBg={imgBg} productActive={productActive} />
+            <ImageBg imgBg={imgBg} productActive={productActive} loading={loading} />
           </div>
         </div>
       </main>
