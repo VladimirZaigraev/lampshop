@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lampshop/static/css/main.5b147286.css",
-    "main.js": "/lampshop/static/js/main.abd7e756.js",
+    "main.js": "/lampshop/static/js/main.43168a8d.js",
     "static/media/img_bg@2x.jpg": "/lampshop/static/media/img_bg@2x.2c36f6bc4702e217acd0.jpg",
     "static/media/SFCompactDisplay-Regular.woff2": "/lampshop/static/media/SFCompactDisplay-Regular.e3a93208f684a40a8569.woff2",
     "static/media/SFCompactDisplay-Ultralight.woff2": "/lampshop/static/media/SFCompactDisplay-Ultralight.c8e565d9a55dd7b998ac.woff2",
@@ -15,10 +15,10 @@
     "static/media/moon.svg": "/lampshop/static/media/moon.360f9c5624f0e0879e03.svg",
     "index.html": "/lampshop/index.html",
     "main.5b147286.css.map": "/lampshop/static/css/main.5b147286.css.map",
-    "main.abd7e756.js.map": "/lampshop/static/js/main.abd7e756.js.map"
+    "main.43168a8d.js.map": "/lampshop/static/js/main.43168a8d.js.map"
   },
   "entrypoints": [
     "static/css/main.5b147286.css",
-    "static/js/main.abd7e756.js"
+    "static/js/main.43168a8d.js"
   ]
 }
