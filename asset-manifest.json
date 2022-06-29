@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/lampshop/static/css/main.c64c9b07.css",
+    "main.css": "/lampshop/static/css/main.5b147286.css",
     "main.js": "/lampshop/static/js/main.d45f30e8.js",
     "static/media/img_bg@2x.jpg": "/lampshop/static/media/img_bg@2x.2c36f6bc4702e217acd0.jpg",
+    "static/media/SFCompactDisplay-Regular.woff2": "/lampshop/static/media/SFCompactDisplay-Regular.e3a93208f684a40a8569.woff2",
+    "static/media/SFCompactDisplay-Ultralight.woff2": "/lampshop/static/media/SFCompactDisplay-Ultralight.c8e565d9a55dd7b998ac.woff2",
     "static/media/img_bg_night@2x.jpg": "/lampshop/static/media/img_bg_night@2x.dba4717624bbed9d686c.jpg",
-    "static/media/SFCompactDisplay-Regular.woff2": "/lampshop/static/media/SFCompactDisplay-Regular.e86c9d796f2a14eb2209.woff2",
-    "static/media/SFCompactDisplay-Ultralight.woff2": "/lampshop/static/media/SFCompactDisplay-Ultralight.0314466257f9d31e8281.woff2",
-    "static/media/SFCompactDisplay-Ultralight.woff": "/lampshop/static/media/SFCompactDisplay-Ultralight.a72d349dba397ce6d001.woff",
-    "static/media/SFCompactDisplay-Regular.woff": "/lampshop/static/media/SFCompactDisplay-Regular.af9721e471213289c3e5.woff",
+    "static/media/SFCompactDisplay-Regular.woff": "/lampshop/static/media/SFCompactDisplay-Regular.c23634f69282b562ee4f.woff",
+    "static/media/SFCompactDisplay-Ultralight.woff": "/lampshop/static/media/SFCompactDisplay-Ultralight.f4a33cd2b881ae472c1d.woff",
     "static/media/img_bg.jpg": "/lampshop/static/media/img_bg.1006df15ec2a904de980.jpg",
     "static/media/img_bg_night.jpg": "/lampshop/static/media/img_bg_night.f53d6b32400d6c62152e.jpg",
     "static/media/logo.svg": "/lampshop/static/media/logo.a5e5410f903aea20912d.svg",
     "static/media/sun.svg": "/lampshop/static/media/sun.7ed353a9f5386561e759.svg",
     "static/media/moon.svg": "/lampshop/static/media/moon.360f9c5624f0e0879e03.svg",
     "index.html": "/lampshop/index.html",
-    "main.c64c9b07.css.map": "/lampshop/static/css/main.c64c9b07.css.map",
+    "main.5b147286.css.map": "/lampshop/static/css/main.5b147286.css.map",
     "main.d45f30e8.js.map": "/lampshop/static/js/main.d45f30e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.c64c9b07.css",
+    "static/css/main.5b147286.css",
     "static/js/main.d45f30e8.js"
   ]
 }
