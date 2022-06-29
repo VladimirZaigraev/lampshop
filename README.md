@@ -2,7 +2,7 @@
 
 <h4>Одностраничное приложение для выбора ламп.</h4>
 
-<img align="center" width="100%" src="https://github.com/VladimirZaigraev/movies-explorer-full/blob/main/screenshot/A-1.jpg">
+<img align="center" width="100%" src="https://github.com/VladimirZaigraev/lampshop/blob/main/screenshot/A-1.jpg">
   
 Ссылка на gh-pages: [https://vladimirzaigraev.github.io/lampshop/](https://vladimirzaigraev.github.io/lampshop/)
 
